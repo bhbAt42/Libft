@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhenriqu <bhenriqu@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 09:47:40 by bhenriqu          #+#    #+#             */
-/*   Updated: 2024/10/08 09:47:40 by bhenriqu         ###   ########.fr       */
+/*   Created: 2024/10/08 10:45:00 by bhenriqu          #+#    #+#             */
+/*   Updated: 2024/10/08 10:45:00 by bhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.c>
+#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_calloc(size_t num, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t total;
-	void *ptr;
-	size_t i;
+	char *dest;
+	size_t	i;
+	size_t	j;
+	size_t	strlens;
 
-	total = num * size;
-	ptr = malloc (total);
-	if (ptr == NULL)
+	if (!s1 || !s2)
 		return (NULL);
 	i = 0;
-	while (i < total)
-		*((char *)ptr + i) = 0;
-	return (ptr);
+	j = 0;
+	strlens = ft_strlen(s2) + ft_strlen(s1);
+	dest = malloc((strlens + 1) * sizeof(char));
+	if (dest == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		dest[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+		dest[i++] = s2[j++];
+	dest[i] = '\0';
+	return (dest);
 }
