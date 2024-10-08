@@ -19,11 +19,11 @@ void	*ft_calloc(size_t num, size_t size)
 	size_t i;
 
 	total = num * size;
-	ptr = malloc (total);
+	ptr = malloc(total);
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
 	while (i < total)
-		*((char *)ptr + i) = 0;
+		*((char *)ptr + i++) = 0;
 	return (ptr);
 }
