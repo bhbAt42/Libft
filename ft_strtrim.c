@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib>
 #include "libft.h"
 
 static int	is_in_set(char c, const char *set)

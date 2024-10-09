@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(cont char *str)
+int	ft_atoi(const char *str)
 {
 	int	num;
 	int	i;
@@ -27,9 +27,9 @@ int	ft_atoi(cont char *str)
 				 neg *= -1;
 			i++;
 		}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		num = num * 10 + (str[i] - 48);
+		num = num * 10 + (str[i] - '0');
 		i++;
 	}
 	return (num * neg);

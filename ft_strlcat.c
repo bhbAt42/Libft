@@ -14,18 +14,24 @@
 
 size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	lendest;
-	int i;
-	int j;
+    size_t lendest;
+    size_t lensrc;
+    size_t i;
+    size_t j;
 
-	lendest = ft_strlen(dst);
-	i = lendest;
-	j = 0;
-	if (size > lendest)
-	{
-		while (size - 1 > i) 
-			dst[i++] = src[j++];
-		dst[i] = '\0';
-	}
-	return (ft_strlen(dst));
+    lendest = ft_strlen(dst);
+    lensrc = ft_strlen(src);
+
+    if (size <= lendest)
+        return (lensrc + size);
+
+    i = lendest;
+    j = 0;
+    while (src[j] && (i + 1) < size)
+    {
+        dst[i++] = src[j++];
+    }
+    dst[i] = '\0';
+
+    return (lendest + lensrc);
 }

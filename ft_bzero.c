@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, size_t n)
+void ft_bzero(void *s, size_t n)
 {
-	if (n == 0)
-		return (s);
-	while (n--)
-		*s++ = 0;
-	return (s);
+    unsigned char *ptr;
+
+    if (s == NULL)
+        return;
+
+    ptr = (unsigned char *)s;
+    while (n--)
+        *ptr++ = 0;
 }

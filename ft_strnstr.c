@@ -10,31 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
-	int	j;
-	int k;
-	
-	i = 0;
-	k = 0;
-	while (i < len && haystack[i])
-	{
-		j = 0;
-		if (haystack[i] == needle[j])
-		{	
-			k = i;
-			while (needle[j] == haystack[i])
-			{
-				if((needle[j] != haystack[i]) && needle[j] != '\0')
-					break ;
-				i++;
-				j++;
-			}
-			if (needle[j] == '\0')
-				return ((char *)haystack + k);
-		}
-		i++;
-	}
-	return (NULL);
+    size_t i;
+    size_t j;
+
+    if (!*needle)
+        return ((char *)haystack);
+    for (i = 0; haystack[i] && i < len; i++)
+    {
+        if (haystack[i] == needle[0])
+        {
+            for (j = 0; needle[j] && haystack[i + j] && i + j < len && haystack[i + j] == needle[j]; j++);
+            if (!needle[j])
+                return ((char *)haystack + i);
+        }
+    }
+    return (NULL);
 }
