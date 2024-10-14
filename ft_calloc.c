@@ -6,24 +6,19 @@
 /*   By: bhenriqu <bhenriqu@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:47:40 by bhenriqu          #+#    #+#             */
-/*   Updated: 2024/10/08 09:47:40 by bhenriqu         ###   ########.fr       */
+/*   Updated: 2024/10/13 23:44:32 by bhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.c>
+#include "libft.h"
 
-void	*ft_calloc(size_t num, size_t size)
+void	*ft_calloc(size_t number, size_t size)
 {
-	size_t total;
-	void *ptr;
-	size_t i;
+	void	*dest;
 
-	total = num * size;
-	ptr = malloc(total);
-	if (ptr == NULL)
+	dest = (void *)malloc (number * size);
+	if (dest == NULL)
 		return (NULL);
-	i = 0;
-	while (i < total)
-		*((char *)ptr + i++) = 0;
-	return (ptr);
+	ft_bzero(dest, number * size);
+	return (dest);
 }

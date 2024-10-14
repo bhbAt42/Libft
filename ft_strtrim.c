@@ -6,12 +6,12 @@
 /*   By: bhenriqu <bhenriqu@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:12:30 by bhenriqu          #+#    #+#             */
-/*   Updated: 2024/10/08 15:21:18 by bhenriqu         ###   ########.fr       */
+/*   Updated: 2024/10/14 00:00:58 by bhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+ 
 static int	is_in_set(char c, const char *set)
 {
 	while (*set)

@@ -6,13 +6,13 @@
 /*   By: bhenriqu <bhenriqu@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:55:47 by bhenriqu          #+#    #+#             */
-/*   Updated: 2024/10/08 17:07:17 by bhenriqu         ###   ########.fr       */
+/*   Updated: 2024/10/13 23:46:31 by bhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_nb(int nb)
+static int	nbnb(int nb)
 {
 	int	len;
 
@@ -32,9 +32,9 @@ char	*ft_itoa(int n)
 	int		i;
 	char	*str;
 
-	i = count_nb(n);
+	i = nbnb(n);
 	str = malloc(sizeof(char) * (i + 1));
-	if (str == NULL)
+	if (!str)
 		return (NULL);
 	str[i--] = '\0';
 	if (n == 0)
